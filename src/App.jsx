@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import logo from './assets/logo.png'
 
 export default function ChilenoSystemsLandingPage() {
-
   const whatsappLink =
     'https://wa.me/5515920004506?text=Olá%20Diego,%20quero%20conhecer%20a%20Chileno%20Systems'
 
@@ -23,32 +22,25 @@ export default function ChilenoSystemsLandingPage() {
   const [visible, setVisible] = useState(true)
 
   useEffect(() => {
-
     const interval = setInterval(() => {
-
       setVisible(false)
 
       setTimeout(() => {
-
         const random =
           notifications[Math.floor(Math.random() * notifications.length)]
 
         setNotification(random)
-
         setVisible(true)
-
       }, 500)
-
     }, 30000)
 
     return () => clearInterval(interval)
-
   }, [])
 
   return (
     <div className="min-h-screen bg-black text-white font-sans overflow-hidden">
 
-      {/* POPUP SOCIAL PROOF */}
+      {/* POPUP */}
       <div
         className={`fixed bottom-6 left-6 z-50 transition-all duration-500 ${
           visible
@@ -56,17 +48,14 @@ export default function ChilenoSystemsLandingPage() {
             : 'opacity-0 translate-y-5'
         }`}
       >
-
         <div className="backdrop-blur-xl bg-zinc-950/90 border border-purple-500/30 rounded-2xl px-5 py-4 shadow-2xl shadow-purple-900/40 max-w-[320px]">
 
           <div className="flex items-center gap-2 mb-2">
-
             <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
 
             <span className="text-green-400 text-sm font-semibold">
               Atividade recente
             </span>
-
           </div>
 
           <p className="text-sm text-zinc-200 leading-relaxed">
@@ -78,17 +67,15 @@ export default function ChilenoSystemsLandingPage() {
           </div>
 
         </div>
-
       </div>
 
-      {/* BOTÃO FLUTUANTE WHATSAPP */}
+      {/* WHATSAPP FLOAT */}
       <a
         href={whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 group"
       >
-
         <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-30" />
 
         <div className="relative w-16 h-16 rounded-full bg-green-500 hover:bg-green-600 transition flex items-center justify-center shadow-2xl shadow-green-500/40">
@@ -102,7 +89,6 @@ export default function ChilenoSystemsLandingPage() {
           </svg>
 
         </div>
-
       </a>
 
       {/* HERO */}
@@ -191,11 +177,9 @@ export default function ChilenoSystemsLandingPage() {
             <div className="relative bg-zinc-950 border border-purple-800/30 rounded-3xl p-5 scale-95 shadow-2xl shadow-purple-900/30 w-full max-w-[620px]">
 
               <div className="flex items-center gap-2 mb-6">
-
                 <div className="w-3 h-3 rounded-full bg-red-500" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500" />
                 <div className="w-3 h-3 rounded-full bg-green-500" />
-
               </div>
 
               <div className="grid gap-4">
@@ -273,6 +257,158 @@ export default function ChilenoSystemsLandingPage() {
         </div>
 
       </section>
+
+      {/* BENEFÍCIOS */}
+      <section className="max-w-7xl mx-auto px-6 py-24">
+
+        <div className="text-center mb-16">
+
+          <h2 className="text-4xl font-black mb-4">
+            Tudo que sua empresa precisa
+          </h2>
+
+          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+            Automatize processos, centralize atendimento e aumente resultados.
+          </p>
+
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          {[
+            'CRM Inteligente',
+            'WhatsApp Integrado',
+            'Automação IA',
+            'Gestão de Conversões',
+          ].map((item, index) => (
+
+            <div
+              key={index}
+              className="bg-zinc-950 border border-purple-900/30 rounded-3xl p-8 hover:border-purple-500 transition"
+            >
+
+              <div className="w-14 h-14 rounded-2xl bg-purple-600/20 border border-purple-600/40 flex items-center justify-center text-purple-400 text-2xl font-black mb-6">
+                +
+              </div>
+
+              <h3 className="text-2xl font-bold mb-4">
+                {item}
+              </h3>
+
+              <p className="text-zinc-400">
+                Solução moderna para empresas que querem crescer com tecnologia.
+              </p>
+
+            </div>
+
+          ))}
+
+        </div>
+
+      </section>
+
+      {/* COMO FUNCIONA */}
+      <section className="bg-zinc-950 border-y border-purple-900/30">
+
+        <div className="max-w-7xl mx-auto px-6 py-24">
+
+          <div className="text-center mb-20">
+
+            <h2 className="text-4xl font-black mb-4">
+              Como funciona
+            </h2>
+
+            <p className="text-zinc-400 text-lg">
+              Simples, rápido e eficiente.
+            </p>
+
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+
+            {[
+              'Implantamos',
+              'Automatizamos',
+              'Escalamos',
+            ].map((item, index) => (
+
+              <div
+                key={index}
+                className="bg-black rounded-3xl border border-purple-900/30 p-10"
+              >
+
+                <div className="text-6xl font-black text-purple-600/30 mb-8">
+                  0{index + 1}
+                </div>
+
+                <h3 className="text-3xl font-bold mb-4">
+                  {item}
+                </h3>
+
+                <p className="text-zinc-400 text-lg">
+                  Estruturamos sua operação para crescer com automação.
+                </p>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* CTA FINAL */}
+      <section className="relative overflow-hidden border-t border-purple-900/30">
+
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/30 to-black" />
+
+        <div className="relative max-w-5xl mx-auto px-6 py-28 text-center">
+
+          <h2 className="text-5xl font-black leading-tight">
+            Sua empresa pronta para o próximo nível.
+          </h2>
+
+          <p className="mt-8 text-zinc-300 text-xl max-w-3xl mx-auto leading-relaxed">
+            Organize atendimento, automatize processos e aumente vendas.
+          </p>
+
+          <div className="mt-12 flex flex-wrap justify-center gap-4">
+
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-purple-600 hover:bg-purple-700 transition px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl shadow-purple-700/30"
+            >
+              Solicitar Demonstração
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-purple-900/20 bg-black py-10">
+
+        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-between items-center gap-6">
+
+          <img
+            src={logo}
+            alt="Chileno Systems"
+            className="w-52 opacity-90"
+          />
+
+          <div className="text-zinc-500 text-sm">
+            © 2026 Chileno Systems. Todos os direitos reservados.
+          </div>
+
+        </div>
+
+      </footer>
 
     </div>
   )
