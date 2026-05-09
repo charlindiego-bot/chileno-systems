@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import logo from './assets/logo.png'
 
 export default function ChilenoSystemsLandingPage() {
@@ -5,8 +6,80 @@ export default function ChilenoSystemsLandingPage() {
   const whatsappLink =
     'https://wa.me/5515920004506?text=Olá%20Diego,%20quero%20conhecer%20a%20Chileno%20Systems'
 
+  const notifications = [
+    '🏢 Empresa de Alphaville/SP solicitou automação comercial',
+    '🚀 Empresa de São Paulo/SP avaliando CRM com IA',
+    '💬 Clínica em Barueri/SP iniciou integração WhatsApp',
+    '📈 Lead de Sorocaba/SP solicitou demonstração',
+    '🤖 Empresa de Campinas/SP ativou atendimento inteligente',
+    '🏥 Clínica em Cerquilho/SP avaliando automação de atendimento',
+    '🧠 Empresa de Tatuí/SP interessada em IA para vendas',
+    '📊 Empresa de Boituva/SP solicitou proposta comercial',
+    '⚡ Empresa de Alphaville/SP iniciou avaliação do CRM',
+    '💼 Nova empresa em São Paulo/SP entrou em contato',
+  ]
+
+  const [notification, setNotification] = useState(notifications[0])
+  const [visible, setVisible] = useState(true)
+
+  useEffect(() => {
+
+    const interval = setInterval(() => {
+
+      setVisible(false)
+
+      setTimeout(() => {
+
+        const random =
+          notifications[Math.floor(Math.random() * notifications.length)]
+
+        setNotification(random)
+
+        setVisible(true)
+
+      }, 500)
+
+    }, 30000)
+
+    return () => clearInterval(interval)
+
+  }, [])
+
   return (
     <div className="min-h-screen bg-black text-white font-sans overflow-hidden">
+
+      {/* POPUP SOCIAL PROOF */}
+      <div
+        className={`fixed bottom-6 left-6 z-50 transition-all duration-500 ${
+          visible
+            ? 'opacity-100 translate-y-0'
+            : 'opacity-0 translate-y-5'
+        }`}
+      >
+
+        <div className="backdrop-blur-xl bg-zinc-950/90 border border-purple-500/30 rounded-2xl px-5 py-4 shadow-2xl shadow-purple-900/40 max-w-[320px]">
+
+          <div className="flex items-center gap-2 mb-2">
+
+            <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
+
+            <span className="text-green-400 text-sm font-semibold">
+              Atividade recente
+            </span>
+
+          </div>
+
+          <p className="text-sm text-zinc-200 leading-relaxed">
+            {notification}
+          </p>
+
+          <div className="mt-3 text-xs text-zinc-500">
+            há alguns segundos
+          </div>
+
+        </div>
+
+      </div>
 
       {/* BOTÃO FLUTUANTE WHATSAPP */}
       <a
@@ -35,20 +108,17 @@ export default function ChilenoSystemsLandingPage() {
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-purple-900/40">
 
-        {/* BACKGROUND */}
         <div className="absolute inset-0 bg-gradient-to-br from-purple-950/40 via-black to-black" />
 
         <div className="absolute top-[-200px] left-[-200px] w-[500px] h-[500px] bg-purple-700/20 rounded-full blur-3xl" />
 
         <div className="absolute bottom-[-200px] right-[-200px] w-[500px] h-[500px] bg-purple-700/20 rounded-full blur-3xl" />
 
-        {/* CONTEÚDO */}
         <div className="relative max-w-7xl mx-auto px-6 py-6 lg:py-10 grid lg:grid-cols-2 gap-10 items-center min-h-screen">
 
           {/* ESQUERDA */}
           <div>
 
-            {/* LOGO */}
             <div className="flex justify-center lg:justify-start mb-2">
 
               <img
@@ -59,12 +129,10 @@ export default function ChilenoSystemsLandingPage() {
 
             </div>
 
-            {/* TAG */}
             <div className="inline-flex items-center rounded-full border border-purple-500/40 bg-purple-500/10 px-4 py-2 text-sm text-purple-300 mb-6">
               CRM • IA • WhatsApp • Automação
             </div>
 
-            {/* TÍTULO */}
             <h1 className="text-5xl lg:text-7xl font-black leading-[0.95] tracking-tight">
 
               <span className="text-white">
@@ -85,14 +153,12 @@ export default function ChilenoSystemsLandingPage() {
 
             </h1>
 
-            {/* TEXTO */}
             <p className="mt-8 text-lg text-zinc-300 max-w-xl leading-relaxed">
               A Chileno Systems ajuda empresas a organizarem atendimento,
               automatizarem processos e aumentarem resultados através de CRM,
               Inteligência Artificial e WhatsApp integrado.
             </p>
 
-            {/* BOTÕES */}
             <div className="mt-10 flex flex-wrap gap-4">
 
               <a
@@ -122,7 +188,6 @@ export default function ChilenoSystemsLandingPage() {
 
             <div className="absolute inset-0 blur-3xl bg-purple-700/20 rounded-full" />
 
-            {/* DASHBOARD */}
             <div className="relative bg-zinc-950 border border-purple-800/30 rounded-3xl p-5 scale-95 shadow-2xl shadow-purple-900/30 w-full max-w-[620px]">
 
               <div className="flex items-center gap-2 mb-6">
@@ -208,6 +273,7 @@ export default function ChilenoSystemsLandingPage() {
         </div>
 
       </section>
+
     </div>
   )
 }
