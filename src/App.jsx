@@ -99,15 +99,15 @@ export default function ChilenoSystemsLandingPage() {
       {/* NAVBAR */}
       <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/70 border-b border-purple-900/20">
 
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
 
           <div className="flex items-center gap-3">
 
             <img
-              src={logo}
-              alt="Chileno Systems"
-              className="w-44"
-            />
+  src={logo}
+  alt="Chileno Systems"
+  className="w-64 lg:w-72 drop-shadow-[0_0_25px_rgba(168,85,247,0.35)]"
+/>
 
           </div>
 
