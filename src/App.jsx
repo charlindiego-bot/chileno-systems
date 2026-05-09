@@ -1,6 +1,10 @@
 import logo from './assets/logo.png'
 
 export default function ChilenoSystemsLandingPage() {
+
+  const whatsappLink =
+    'https://wa.me/5515920004506?text=Olá%20Diego,%20quero%20conhecer%20a%20Chileno%20Systems'
+
   return (
     <div className="min-h-screen bg-black text-white font-sans overflow-hidden">
 
@@ -67,13 +71,23 @@ export default function ChilenoSystemsLandingPage() {
             {/* BOTÕES */}
             <div className="mt-10 flex flex-wrap gap-4">
 
-              <button className="bg-purple-600 hover:bg-purple-700 transition px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-purple-700/30">
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-purple-600 hover:bg-purple-700 transition px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-purple-700/30"
+              >
                 Solicitar Demonstração
-              </button>
+              </a>
 
-              <button className="border border-purple-600 hover:bg-purple-600/10 transition px-8 py-4 rounded-2xl font-bold text-lg">
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-purple-600 hover:bg-purple-600/10 transition px-8 py-4 rounded-2xl font-bold text-lg"
+              >
                 Falar no WhatsApp
-              </button>
+              </a>
 
             </div>
 
@@ -323,13 +337,23 @@ export default function ChilenoSystemsLandingPage() {
 
           <div className="mt-12 flex flex-wrap justify-center gap-4">
 
-            <button className="bg-purple-600 hover:bg-purple-700 transition px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl shadow-purple-700/30">
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-purple-600 hover:bg-purple-700 transition px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl shadow-purple-700/30"
+            >
               Solicitar Demonstração
-            </button>
+            </a>
 
-            <button className="border border-purple-500 hover:bg-purple-600/10 transition px-10 py-5 rounded-2xl font-bold text-lg">
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-purple-500 hover:bg-purple-600/10 transition px-10 py-5 rounded-2xl font-bold text-lg"
+            >
               Falar com Especialista
-            </button>
+            </a>
 
           </div>
 
