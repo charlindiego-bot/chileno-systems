@@ -100,6 +100,7 @@ export default function App() {
       id: 'starter',
       title: 'Starter',
       price: 'R$ 197/mês',
+
       description:
         'Ideal para pequenas empresas organizarem atendimento, leads e vendas.',
 
@@ -112,6 +113,7 @@ export default function App() {
 
       details: {
         subtitle: 'Plano ideal para começar a organizar o comercial',
+
         text:
           'O plano Starter foi desenvolvido para pequenas empresas que precisam centralizar atendimento, organizar contatos e iniciar uma estrutura comercial profissional.',
 
@@ -151,6 +153,7 @@ export default function App() {
 
       details: {
         subtitle: 'Automação inteligente para empresas em crescimento',
+
         text:
           'O Business entrega uma operação comercial moderna com Inteligência Artificial, automações e centralização total do atendimento.',
 
@@ -190,6 +193,7 @@ export default function App() {
 
       details: {
         subtitle: 'Estrutura premium de alta performance',
+
         text:
           'O Enterprise é uma implantação estratégica completa para empresas que precisam de automações avançadas, inteligência personalizada e crescimento escalável.',
 
@@ -347,29 +351,9 @@ export default function App() {
               que querem escalar atendimento e aumentar vendas.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-4">
-
-              <a
-                href="#contato"
-                className="bg-purple-600 hover:bg-purple-700 transition px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-purple-700/30"
-              >
-                Solicitar Demonstração
-              </a>
-
-              <a
-                href="#planos"
-                className="border border-purple-600 hover:bg-purple-600/10 transition px-8 py-4 rounded-2xl font-bold text-lg"
-              >
-                Ver Planos
-              </a>
-
-            </div>
-
           </div>
 
           <div className="relative flex justify-center">
-
-            <div className="absolute inset-0 blur-3xl bg-purple-700/20 rounded-full" />
 
             <div className="relative bg-zinc-950 border border-purple-800/30 rounded-3xl p-5 scale-95 shadow-2xl shadow-purple-900/30 w-full max-w-[620px]">
 
@@ -424,3 +408,232 @@ export default function App() {
         </div>
 
       </section>
+
+      {/* PLANOS */}
+      <section
+        id="planos"
+        className="max-w-7xl mx-auto px-6 py-24"
+      >
+
+        <div className="text-center mb-20">
+
+          <h2 className="text-5xl font-black mb-6">
+            Planos inteligentes
+          </h2>
+
+          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+            Escolha a estrutura ideal para sua operação comercial.
+          </p>
+
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-8">
+
+          {plans.map((plan, index) => (
+
+            <div
+              key={index}
+              className={`rounded-3xl p-10 border transition duration-300 relative overflow-hidden ${
+                plan.popular
+                  ? 'bg-purple-600 border-purple-400 shadow-2xl shadow-purple-900/40 scale-105'
+                  : 'bg-zinc-950 border-purple-900/30'
+              }`}
+            >
+
+              {plan.popular && (
+
+                <div className="absolute top-4 right-4 bg-white text-black text-xs font-bold px-3 py-1 rounded-full">
+                  MAIS POPULAR
+                </div>
+
+              )}
+
+              <h3 className="text-3xl font-black mb-4">
+                {plan.title}
+              </h3>
+
+              <div className="text-5xl font-black mb-6">
+                {plan.price}
+              </div>
+
+              <p className={`mb-8 leading-relaxed ${
+                plan.popular
+                  ? 'text-purple-100'
+                  : 'text-zinc-400'
+              }`}>
+                {plan.description}
+              </p>
+
+              <div className="space-y-4 mb-10">
+
+                {plan.features.map((feature, i) => (
+
+                  <div key={i} className="flex items-center gap-3">
+
+                    <div className="w-2 h-2 rounded-full bg-green-400" />
+
+                    <span>
+                      {feature}
+                    </span>
+
+                  </div>
+
+                ))}
+
+              </div>
+
+              <button
+                onClick={() =>
+                  setExpandedPlan(
+                    expandedPlan === plan.id
+                      ? null
+                      : plan.id
+                  )
+                }
+                className={`w-full py-4 rounded-2xl font-bold transition ${
+                  plan.popular
+                    ? 'bg-white text-black hover:bg-zinc-200'
+                    : 'bg-purple-600 hover:bg-purple-700'
+                }`}
+              >
+                {expandedPlan === plan.id
+                  ? 'Fechar detalhes'
+                  : 'Conhecer Plano'}
+              </button>
+
+            </div>
+
+          ))}
+
+        </div>
+
+      </section>
+
+      {/* FORMULÁRIO */}
+      <section
+        id="contato"
+        className="max-w-7xl mx-auto px-6 py-24"
+      >
+
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div>
+
+            <div className="inline-flex items-center rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm text-purple-300 mb-6">
+              🚀 Demonstração estratégica
+            </div>
+
+            <h2 className="text-5xl font-black leading-tight mb-8">
+              Descubra como sua empresa pode vender mais com IA
+            </h2>
+
+            <p className="text-zinc-400 text-lg leading-relaxed mb-10">
+              Automatize atendimento, organize leads e transforme seu WhatsApp
+              em uma verdadeira central comercial inteligente.
+            </p>
+
+          </div>
+
+          <div className="relative">
+
+            <div className="absolute inset-0 blur-3xl bg-purple-700/20 rounded-full" />
+
+            <div className="relative bg-zinc-950 border border-purple-900/30 rounded-3xl p-8 shadow-2xl shadow-purple-900/30">
+
+              <form
+                onSubmit={(e) => {
+
+                  e.preventDefault()
+
+                  const nome = e.target.nome.value
+                  const empresa = e.target.empresa.value
+                  const telefone = e.target.telefone.value
+                  const email = e.target.email.value
+
+                  const mensagem =
+                    `Olá Diego! Quero uma demonstração.%0A%0A` +
+                    `👤 Nome: ${nome}%0A` +
+                    `🏢 Empresa: ${empresa}%0A` +
+                    `📞 WhatsApp: ${telefone}%0A` +
+                    `📧 E-mail: ${email}`
+
+                  window.open(
+                    `https://wa.me/5515920004506?text=${mensagem}`,
+                    '_blank'
+                  )
+
+                }}
+                className="space-y-5"
+              >
+
+                <input
+                  type="text"
+                  name="nome"
+                  placeholder="Seu nome"
+                  required
+                  className="w-full bg-black border border-zinc-800 rounded-2xl px-5 py-4 outline-none focus:border-purple-500 transition"
+                />
+
+                <input
+                  type="text"
+                  name="empresa"
+                  placeholder="Nome da empresa"
+                  required
+                  className="w-full bg-black border border-zinc-800 rounded-2xl px-5 py-4 outline-none focus:border-purple-500 transition"
+                />
+
+                <input
+                  type="text"
+                  name="telefone"
+                  placeholder="WhatsApp"
+                  required
+                  className="w-full bg-black border border-zinc-800 rounded-2xl px-5 py-4 outline-none focus:border-purple-500 transition"
+                />
+
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Seu e-mail"
+                  required
+                  className="w-full bg-black border border-zinc-800 rounded-2xl px-5 py-4 outline-none focus:border-purple-500 transition"
+                />
+
+                <button
+                  type="submit"
+                  className="w-full bg-purple-600 hover:bg-purple-700 transition py-5 rounded-2xl font-bold text-lg shadow-2xl shadow-purple-900/40"
+                >
+                  Solicitar Demonstração
+                </button>
+
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-purple-900/20 bg-black py-10">
+
+        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-between items-center gap-6">
+
+          <img
+            src={logo}
+            alt="Chileno Systems"
+            className="w-52 opacity-90"
+          />
+
+          <div className="text-zinc-500 text-sm">
+            © 2026 Chileno Systems. Todos os direitos reservados.
+          </div>
+
+        </div>
+
+      </footer>
+
+    </div>
+  )
+}
