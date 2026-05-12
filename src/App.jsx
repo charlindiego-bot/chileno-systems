@@ -29,7 +29,6 @@ export default function App() {
   const [conversionCount, setConversionCount] = useState(0)
   const [hoursCount, setHoursCount] = useState(0)
 
-  /* POPUP */
   useEffect(() => {
 
     const hideInitial = setTimeout(() => {
@@ -58,7 +57,6 @@ export default function App() {
 
   }, [])
 
-  /* CONTADORES */
   useEffect(() => {
 
     const leadsInterval = setInterval(() => {
@@ -94,7 +92,7 @@ export default function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans overflow-hidden">
+    <div className="min-h-screen bg-black text-white overflow-hidden font-sans">
 
       {/* NAVBAR */}
       <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/70 border-b border-purple-900/20">
@@ -117,6 +115,10 @@ export default function App() {
               Planos
             </a>
 
+            <a href="#implantacao" className="hover:text-purple-400 transition">
+              Implantação
+            </a>
+
             <a href="#contato" className="hover:text-purple-400 transition">
               Contato
             </a>
@@ -136,7 +138,7 @@ export default function App() {
 
       </header>
 
-      {/* POPUP ESQUERDO */}
+      {/* POPUP */}
       <div
         className={`fixed bottom-6 left-6 z-50 transition-all duration-500 ${
           visible
@@ -169,7 +171,7 @@ export default function App() {
 
       </div>
 
-      {/* BOTÃO WHATSAPP */}
+      {/* WHATSAPP FLOAT */}
       <a
         href={whatsappLink}
         target="_blank"
@@ -202,9 +204,8 @@ export default function App() {
 
         <div className="absolute bottom-[-200px] right-[-200px] w-[500px] h-[500px] bg-purple-700/20 rounded-full blur-3xl" />
 
-        <div className="relative max-w-7xl mx-auto px-6 py-12 lg:py-20 grid lg:grid-cols-2 gap-10 items-center min-h-screen">
+        <div className="relative max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center min-h-screen">
 
-          {/* ESQUERDA */}
           <div>
 
             <div className="inline-flex items-center rounded-full border border-green-500/40 bg-green-500/10 px-4 py-2 text-sm text-green-400 mb-6">
@@ -233,7 +234,7 @@ export default function App() {
 
             <p className="mt-8 text-lg text-zinc-300 max-w-xl leading-relaxed">
               CRM, Inteligência Artificial e automação comercial para empresas
-              que querem escalar atendimento e aumentar vendas.
+              que querem escalar atendimento, aumentar conversões e crescer com tecnologia.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -256,7 +257,6 @@ export default function App() {
 
           </div>
 
-          {/* DIREITA */}
           <div className="relative flex justify-center">
 
             <div className="absolute inset-0 blur-3xl bg-purple-700/20 rounded-full" />
@@ -314,349 +314,3 @@ export default function App() {
         </div>
 
       </section>
-
-      {/* BENEFÍCIOS */}
-      <section
-        id="beneficios"
-        className="max-w-7xl mx-auto px-6 py-24"
-      >
-
-        <div className="text-center mb-16">
-
-          <h2 className="text-4xl font-black mb-4">
-            Tudo que sua empresa precisa
-          </h2>
-
-          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-            Automatize processos, centralize atendimento e aumente resultados.
-          </p>
-
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-          {[
-            'CRM Inteligente',
-            'WhatsApp Integrado',
-            'Automação IA',
-            'Gestão de Conversões',
-          ].map((item, index) => (
-
-            <div
-              key={index}
-              className="bg-zinc-950 border border-purple-900/30 rounded-3xl p-8 hover:border-purple-500 transition hover:-translate-y-2 duration-300"
-            >
-
-              <div className="w-14 h-14 rounded-2xl bg-purple-600/20 border border-purple-600/40 flex items-center justify-center text-purple-400 text-2xl font-black mb-6">
-                +
-              </div>
-
-              <h3 className="text-2xl font-bold mb-4">
-                {item}
-              </h3>
-
-              <p className="text-zinc-400">
-                Solução moderna para empresas que querem crescer com tecnologia.
-              </p>
-
-            </div>
-
-          ))}
-
-        </div>
-
-      </section>
-
-      {/* FORMULÁRIO */}
-      <section
-        id="contato"
-        className="max-w-7xl mx-auto px-6 py-24"
-      >
-
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-
-          <div>
-
-            <div className="inline-flex items-center rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm text-purple-300 mb-6">
-              🚀 Demonstração estratégica
-            </div>
-
-            <h2 className="text-5xl font-black leading-tight mb-8">
-              Descubra como sua empresa pode vender mais com IA
-            </h2>
-
-            <p className="text-zinc-400 text-lg leading-relaxed mb-10">
-              Automatize atendimento, organize leads e transforme seu WhatsApp
-              em uma verdadeira central de vendas.
-            </p>
-
-            <div className="space-y-5">
-
-              {[
-                'CRM completo integrado',
-                'WhatsApp multiatendimento',
-                'Automação comercial',
-                'Inteligência Artificial',
-                'Gestão de conversões',
-                'Suporte especializado',
-              ].map((item, index) => (
-
-                <div
-                  key={index}
-                  className="flex items-center gap-4"
-                >
-
-                  <div className="w-4 h-4 rounded-full bg-green-400 shadow-lg shadow-green-500/40" />
-
-                  <span className="text-lg">
-                    {item}
-                  </span>
-
-                </div>
-
-              ))}
-
-            </div>
-
-          </div>
-
-          <div className="relative">
-
-            <div className="absolute inset-0 blur-3xl bg-purple-700/20 rounded-full" />
-
-            <div className="relative bg-zinc-950 border border-purple-900/30 rounded-3xl p-8 shadow-2xl shadow-purple-900/30">
-
-              <form
-                onSubmit={(e) => {
-
-                  e.preventDefault()
-
-                  const nome = e.target.nome.value
-                  const empresa = e.target.empresa.value
-                  const telefone = e.target.telefone.value
-                  const email = e.target.email.value
-
-                  const mensagem =
-                    `Olá Diego! Quero uma demonstração da Chileno Systems.%0A%0A` +
-                    `👤 Nome: ${nome}%0A` +
-                    `🏢 Empresa: ${empresa}%0A` +
-                    `📞 WhatsApp: ${telefone}%0A` +
-                    `📧 E-mail: ${email}`
-
-                  window.open(
-                    `https://wa.me/5515920004506?text=${mensagem}`,
-                    '_blank'
-                  )
-
-                }}
-                className="space-y-5"
-              >
-
-                <input
-                  type="text"
-                  name="nome"
-                  placeholder="Seu nome"
-                  required
-                  className="w-full bg-black border border-zinc-800 rounded-2xl px-5 py-4 outline-none focus:border-purple-500 transition"
-                />
-
-                <input
-                  type="text"
-                  name="empresa"
-                  placeholder="Nome da empresa"
-                  required
-                  className="w-full bg-black border border-zinc-800 rounded-2xl px-5 py-4 outline-none focus:border-purple-500 transition"
-                />
-
-                <input
-                  type="text"
-                  name="telefone"
-                  placeholder="WhatsApp"
-                  required
-                  className="w-full bg-black border border-zinc-800 rounded-2xl px-5 py-4 outline-none focus:border-purple-500 transition"
-                />
-
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Seu e-mail"
-                  required
-                  className="w-full bg-black border border-zinc-800 rounded-2xl px-5 py-4 outline-none focus:border-purple-500 transition"
-                />
-
-                <button
-                  type="submit"
-                  className="w-full bg-purple-600 hover:bg-purple-700 transition py-5 rounded-2xl font-bold text-lg shadow-2xl shadow-purple-900/40"
-                >
-                  Solicitar Demonstração
-                </button>
-
-              </form>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* PLANOS */}
-      <section
-        id="planos"
-        className="max-w-7xl mx-auto px-6 py-24"
-      >
-
-        <div className="text-center mb-20">
-
-          <h2 className="text-5xl font-black mb-6">
-            Planos inteligentes
-          </h2>
-
-          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-            Soluções completas para empresas que querem crescer com CRM,
-            automação e Inteligência Artificial.
-          </p>
-
-        </div>
-
-        <div className="grid lg:grid-cols-3 gap-8">
-
-          {[
-            {
-              title: 'Starter',
-              price: 'R$ 197/mês',
-              description:
-                'Ideal para pequenas empresas que precisam organizar atendimento e vendas.',
-
-              features: [
-                'CRM completo',
-                'WhatsApp integrado',
-                '1 usuário',
-                'Funil de vendas',
-              ],
-            },
-
-            {
-              title: 'Business',
-              price: 'R$ 497/mês',
-              description:
-                'Automação inteligente para empresas que querem escalar resultados.',
-
-              features: [
-                'CRM + Inteligência Artificial',
-                'Automação de atendimento',
-                '5 usuários',
-                'Gestão de conversões',
-              ],
-            },
-
-            {
-              title: 'Enterprise',
-              price: 'Sob consulta',
-              description:
-                'Estrutura premium para operações comerciais de alta performance.',
-
-              features: [
-                'Implantação completa',
-                'IA avançada personalizada',
-                'Usuários ilimitados',
-                'Treinamento da equipe',
-              ],
-            },
-          ].map((plan, index) => (
-
-            <div
-              key={index}
-              className={`rounded-3xl p-10 border transition hover:-translate-y-2 duration-300 relative overflow-hidden ${
-                index === 1
-                  ? 'bg-purple-600 border-purple-400 shadow-2xl shadow-purple-900/40 scale-105'
-                  : 'bg-zinc-950 border-purple-900/30'
-              }`}
-            >
-
-              {index === 1 && (
-
-                <div className="absolute top-4 right-4 bg-white text-black text-xs font-bold px-3 py-1 rounded-full">
-                  MAIS POPULAR
-                </div>
-
-              )}
-
-              <h3 className="text-3xl font-black mb-4">
-                {plan.title}
-              </h3>
-
-              <div className="text-5xl font-black mb-6">
-                {plan.price}
-              </div>
-
-              <p className={`mb-8 leading-relaxed ${
-                index === 1
-                  ? 'text-purple-100'
-                  : 'text-zinc-400'
-              }`}>
-                {plan.description}
-              </p>
-
-              <div className="space-y-4 mb-10">
-
-                {plan.features.map((feature, i) => (
-
-                  <div key={i} className="flex items-center gap-3">
-
-                    <div className="w-2 h-2 rounded-full bg-green-400" />
-
-                    <span>
-                      {feature}
-                    </span>
-
-                  </div>
-
-                ))}
-
-              </div>
-
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`w-full block text-center py-4 rounded-2xl font-bold transition ${
-                  index === 1
-                    ? 'bg-white text-black hover:bg-zinc-200'
-                    : 'bg-purple-600 hover:bg-purple-700'
-                }`}
-              >
-                Solicitar Demonstração
-              </a>
-
-            </div>
-
-          ))}
-
-        </div>
-
-      </section>
-
-      {/* FOOTER */}
-      <footer className="border-t border-purple-900/20 bg-black py-10">
-
-        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-between items-center gap-6">
-
-          <img
-            src={logo}
-            alt="Chileno Systems"
-            className="w-52 opacity-90"
-          />
-
-          <div className="text-zinc-500 text-sm">
-            © 2026 Chileno Systems. Todos os direitos reservados.
-          </div>
-
-        </div>
-
-      </footer>
-
-    </div>
-  )
-}
