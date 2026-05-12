@@ -347,6 +347,24 @@ export default function App() {
               que querem escalar atendimento e aumentar vendas.
             </p>
 
+            <div className="mt-10 flex flex-wrap gap-4">
+
+              <a
+                href="#contato"
+                className="bg-purple-600 hover:bg-purple-700 transition px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-purple-700/30"
+              >
+                Solicitar Demonstração
+              </a>
+
+              <a
+                href="#planos"
+                className="border border-purple-600 hover:bg-purple-600/10 transition px-8 py-4 rounded-2xl font-bold text-lg"
+              >
+                Ver Planos
+              </a>
+
+            </div>
+
           </div>
 
           <div className="relative flex justify-center">
@@ -406,239 +424,3 @@ export default function App() {
         </div>
 
       </section>
-
-      {/* PLANOS PREMIUM */}
-      <section
-        id="planos"
-        className="max-w-7xl mx-auto px-6 py-24"
-      >
-
-        <div className="text-center mb-20">
-
-          <h2 className="text-5xl font-black mb-6">
-            Planos inteligentes
-          </h2>
-
-          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-            Escolha a estrutura ideal para sua operação comercial.
-          </p>
-
-        </div>
-
-        <div className="grid lg:grid-cols-3 gap-8">
-
-          {plans.map((plan, index) => (
-
-            <div
-              key={index}
-              className={`rounded-3xl p-10 border transition duration-300 relative overflow-hidden ${
-                plan.popular
-                  ? 'bg-purple-600 border-purple-400 shadow-2xl shadow-purple-900/40 scale-105'
-                  : 'bg-zinc-950 border-purple-900/30'
-              }`}
-            >
-
-              {plan.popular && (
-
-                <div className="absolute top-4 right-4 bg-white text-black text-xs font-bold px-3 py-1 rounded-full">
-                  MAIS POPULAR
-                </div>
-
-              )}
-
-              <h3 className="text-3xl font-black mb-4">
-                {plan.title}
-              </h3>
-
-              <div className="text-5xl font-black mb-6">
-                {plan.price}
-              </div>
-
-              <p className={`mb-8 leading-relaxed ${
-                plan.popular
-                  ? 'text-purple-100'
-                  : 'text-zinc-400'
-              }`}>
-                {plan.description}
-              </p>
-
-              <div className="space-y-4 mb-10">
-
-                {plan.features.map((feature, i) => (
-
-                  <div key={i} className="flex items-center gap-3">
-
-                    <div className="w-2 h-2 rounded-full bg-green-400" />
-
-                    <span>
-                      {feature}
-                    </span>
-
-                  </div>
-
-                ))}
-
-              </div>
-
-              <button
-                onClick={() =>
-                  setExpandedPlan(
-                    expandedPlan === plan.id
-                      ? null
-                      : plan.id
-                  )
-                }
-                className={`w-full py-4 rounded-2xl font-bold transition ${
-                  plan.popular
-                    ? 'bg-white text-black hover:bg-zinc-200'
-                    : 'bg-purple-600 hover:bg-purple-700'
-                }`}
-              >
-                {expandedPlan === plan.id
-                  ? 'Fechar detalhes'
-                  : 'Conhecer Plano'}
-              </button>
-
-            </div>
-
-          ))}
-
-        </div>
-
-        {/* EXPANSÃO PREMIUM */}
-        {expandedPlan && (
-
-          <div className="mt-14 bg-zinc-950 border border-purple-900/30 rounded-3xl p-10 animate-fadeIn">
-
-            {plans
-              .filter(plan => plan.id === expandedPlan)
-              .map((plan, index) => (
-
-                <div key={index}>
-
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-12">
-
-                    <div>
-
-                      <div className="text-purple-400 text-sm uppercase tracking-[4px] mb-4">
-                        Plano {plan.title}
-                      </div>
-
-                      <h3 className="text-5xl font-black mb-4">
-                        {plan.details.subtitle}
-                      </h3>
-
-                      <p className="text-zinc-400 text-lg max-w-3xl leading-relaxed">
-                        {plan.details.text}
-                      </p>
-
-                    </div>
-
-                    <a
-                      href={whatsappLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-purple-600 hover:bg-purple-700 transition px-8 py-5 rounded-2xl font-bold text-lg shadow-2xl shadow-purple-900/30 text-center"
-                    >
-                      Solicitar Demonstração
-                    </a>
-
-                  </div>
-
-                  <div className="grid lg:grid-cols-2 gap-10">
-
-                    <div>
-
-                      <h4 className="text-3xl font-black mb-8">
-                        O que está incluso
-                      </h4>
-
-                      <div className="space-y-5">
-
-                        {plan.details.modules.map((module, i) => (
-
-                          <div
-                            key={i}
-                            className="flex items-center gap-4 bg-black border border-zinc-800 rounded-2xl px-5 py-4"
-                          >
-
-                            <div className="w-4 h-4 rounded-full bg-purple-500 shadow-lg shadow-purple-500/40" />
-
-                            <span className="text-lg">
-                              {module}
-                            </span>
-
-                          </div>
-
-                        ))}
-
-                      </div>
-
-                    </div>
-
-                    <div>
-
-                      <h4 className="text-3xl font-black mb-8">
-                        Benefícios reais
-                      </h4>
-
-                      <div className="space-y-5">
-
-                        {plan.details.benefits.map((benefit, i) => (
-
-                          <div
-                            key={i}
-                            className="bg-gradient-to-r from-purple-900/30 to-black border border-purple-900/30 rounded-2xl p-6"
-                          >
-
-                            <div className="text-xl font-bold mb-2">
-                              {benefit}
-                            </div>
-
-                            <p className="text-zinc-400">
-                              Estrutura pensada para empresas modernas que
-                              querem crescimento e escalabilidade.
-                            </p>
-
-                          </div>
-
-                        ))}
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              ))}
-
-          </div>
-
-        )}
-
-      </section>
-
-      {/* FOOTER */}
-      <footer className="border-t border-purple-900/20 bg-black py-10">
-
-        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-between items-center gap-6">
-
-          <img
-            src={logo}
-            alt="Chileno Systems"
-            className="w-52 opacity-90"
-          />
-
-          <div className="text-zinc-500 text-sm">
-            © 2026 Chileno Systems. Todos os direitos reservados.
-          </div>
-
-        </div>
-
-      </footer>
-
-    </div>
-  )
-}
