@@ -480,6 +480,121 @@ export default function App() {
 
                 ))}
 
+                {/* DETALHES EXPANDIDOS */}
+{expandedPlan && (
+
+  <div className="mt-16">
+
+    {plans
+      .filter(plan => plan.id === expandedPlan)
+      .map((plan) => (
+
+        <div
+          key={plan.id}
+          className="bg-zinc-950 border border-purple-900/30 rounded-3xl p-10 shadow-2xl shadow-purple-900/20 animate-fadeIn"
+        >
+
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-10">
+
+            <div>
+
+              <div className="text-purple-400 font-semibold mb-2">
+                {plan.title}
+              </div>
+
+              <h3 className="text-4xl font-black mb-4">
+                {plan.details.subtitle}
+              </h3>
+
+              <p className="text-zinc-400 text-lg leading-relaxed max-w-4xl">
+                {plan.details.text}
+              </p>
+
+            </div>
+
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-purple-600 hover:bg-purple-700 transition px-8 py-4 rounded-2xl font-bold whitespace-nowrap"
+            >
+              Solicitar Demonstração
+            </a>
+
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-10">
+
+            {/* MÓDULOS */}
+            <div>
+
+              <h4 className="text-2xl font-bold mb-6">
+                O que contempla
+              </h4>
+
+              <div className="space-y-4">
+
+                {plan.details.modules.map((item, index) => (
+
+                  <div
+                    key={index}
+                    className="flex items-center gap-4 bg-black/40 border border-zinc-800 rounded-2xl px-5 py-4"
+                  >
+
+                    <div className="w-3 h-3 rounded-full bg-purple-500" />
+
+                    <span className="text-zinc-200">
+                      {item}
+                    </span>
+
+                  </div>
+
+                ))}
+
+              </div>
+
+            </div>
+
+            {/* BENEFÍCIOS */}
+            <div>
+
+              <h4 className="text-2xl font-bold mb-6">
+                Benefícios
+              </h4>
+
+              <div className="space-y-4">
+
+                {plan.details.benefits.map((item, index) => (
+
+                  <div
+                    key={index}
+                    className="flex items-center gap-4 bg-black/40 border border-zinc-800 rounded-2xl px-5 py-4"
+                  >
+
+                    <div className="w-3 h-3 rounded-full bg-green-400" />
+
+                    <span className="text-zinc-200">
+                      {item}
+                    </span>
+
+                  </div>
+
+                ))}
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      ))}
+
+  </div>
+
+)}
+
               </div>
 
               <button
