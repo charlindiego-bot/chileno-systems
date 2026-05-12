@@ -7,11 +7,19 @@ export default function App() {
     'https://wa.me/5515920004506?text=Olá%20Diego,%20quero%20conhecer%20a%20Chileno%20Systems'
 
   const notifications = [
-    '🏢 Empresa de Alphaville/SP solicitou automação comercial',
+  '🏢 Empresa de Alphaville/SP solicitou automação comercial',
     '🚀 Empresa de São Paulo/SP avaliando CRM com IA',
     '💬 Clínica em Barueri/SP iniciou integração WhatsApp',
     '📈 Lead de Sorocaba/SP solicitou demonstração',
     '🤖 Empresa de Campinas/SP ativou atendimento inteligente',
+    '🏥 Clínica em Cerquilho/SP avaliando automação de atendimento',
+    '🧠 Empresa de Tatuí/SP interessada em IA para vendas',
+    '📊 Empresa de Boituva/SP solicitou proposta comercial',
+    '⚡ Empresa de Alphaville/SP iniciou avaliação do CRM',
+    '💼 Nova empresa em São Paulo/SP entrou em contato',
+    '🎉 Empresa de Sorocaba/SP contratou implantação completa',
+    '📝 Empresa de Jundiaí/SP solicitou demonstração de IA',
+    '🤝 Empresa de Indaiatuba/SP iniciou conversa sobre automação',
   ]
 
   const [notification, setNotification] = useState(notifications[0])
@@ -23,6 +31,7 @@ export default function App() {
 
   const [expandedPlan, setExpandedPlan] = useState(null)
 
+  /* POPUP */
   useEffect(() => {
 
     const hideInitial = setTimeout(() => {
@@ -42,7 +51,7 @@ export default function App() {
         setVisible(false)
       }, 6000)
 
-    }, 20000)
+    }, 18000)
 
     return () => {
       clearTimeout(hideInitial)
@@ -51,32 +60,33 @@ export default function App() {
 
   }, [])
 
+  /* CONTADORES */
   useEffect(() => {
 
-    const leadsInterval = setInterval(() => {
+    const leads = setInterval(() => {
       setLeadCount(prev => {
         if (prev >= 128) {
-          clearInterval(leadsInterval)
+          clearInterval(leads)
           return 128
         }
         return prev + 2
       })
     }, 20)
 
-    const conversionInterval = setInterval(() => {
+    const conversions = setInterval(() => {
       setConversionCount(prev => {
         if (prev >= 78) {
-          clearInterval(conversionInterval)
+          clearInterval(conversions)
           return 78
         }
         return prev + 1
       })
     }, 40)
 
-    const hoursInterval = setInterval(() => {
+    const hours = setInterval(() => {
       setHoursCount(prev => {
         if (prev >= 24) {
-          clearInterval(hoursInterval)
+          clearInterval(hours)
           return 24
         }
         return prev + 1
@@ -90,35 +100,36 @@ export default function App() {
       id: 'starter',
       title: 'Starter',
       price: 'R$ 197/mês',
+      popular: false,
 
       description:
-        'Ideal para pequenas empresas organizarem atendimento, leads e vendas.',
+        'Ideal para pequenas empresas organizarem atendimento e vendas.',
 
       features: [
         'CRM integrado',
         'WhatsApp conectado',
-        'Funil comercial',
-        'Gestão básica de leads',
+        'Pipeline comercial',
+        'Gestão de leads',
       ],
 
       details: {
-        subtitle: 'Plano ideal para começar a organizar o comercial',
+        subtitle: 'Estruture seu comercial com tecnologia',
 
         text:
-          'Estruture seu atendimento e organize sua operação comercial com CRM integrado.',
+          'Organize atendimento, clientes e vendas em uma única plataforma moderna.',
 
         modules: [
           'CRM completo',
-          'Pipeline comercial',
-          'WhatsApp integrado',
+          'Funil de vendas',
           'Controle de leads',
           'Dashboard comercial',
+          'WhatsApp integrado',
         ],
 
         benefits: [
           'Mais organização',
           'Menos perda de leads',
-          'Atendimento mais rápido',
+          'Maior produtividade',
         ],
       },
     },
@@ -130,26 +141,26 @@ export default function App() {
       popular: true,
 
       description:
-        'Automação inteligente com foco em crescimento e escalabilidade.',
+        'Automação inteligente com IA para empresas em crescimento.',
 
       features: [
         'CRM + IA',
         'Automação comercial',
         'Multi atendimento',
-        'Dashboard completo',
+        'Dashboard avançado',
       ],
 
       details: {
-        subtitle: 'Automação inteligente para empresas em crescimento',
+        subtitle: 'Escalabilidade e automação inteligente',
 
         text:
-          'Automatize atendimento e escale sua operação com Inteligência Artificial.',
+          'Automatize atendimento e acelere crescimento com Inteligência Artificial.',
 
         modules: [
           'CRM avançado',
-          'Automação de mensagens',
-          'IA integrada',
-          'WhatsApp multi usuários',
+          'Automação WhatsApp',
+          'Atendimento IA',
+          'Distribuição de leads',
           'Relatórios avançados',
         ],
 
@@ -165,33 +176,35 @@ export default function App() {
       id: 'enterprise',
       title: 'Enterprise',
       price: 'Sob consulta',
+      popular: false,
 
       description:
-        'Implantação premium personalizada para empresas de alta performance.',
+        'Estrutura premium personalizada para operações avançadas.',
 
       features: [
         'IA personalizada',
         'Usuários ilimitados',
+        'Consultoria estratégica',
         'Treinamento completo',
-        'Implantação estratégica',
       ],
 
       details: {
-        subtitle: 'Estrutura premium de alta performance',
+        subtitle: 'Operação premium de alta performance',
 
         text:
-          'Implantação estratégica completa para operações comerciais avançadas.',
+          'Implantação estratégica para empresas que buscam escala profissional.',
 
         modules: [
-          'IA personalizada',
-          'Fluxos avançados',
-          'Integrações sob medida',
+          'Fluxos personalizados',
+          'Integrações avançadas',
+          'IA sob medida',
           'Consultoria estratégica',
+          'Treinamento da equipe',
         ],
 
         benefits: [
-          'Escalabilidade total',
           'Alta performance',
+          'Escalabilidade total',
           'Operação profissional',
         ],
       },
@@ -199,30 +212,30 @@ export default function App() {
   ]
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
 
       {/* NAVBAR */}
-      <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/70 border-b border-purple-900/20">
+      <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/70 border-b border-purple-900/30">
 
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
           <img
             src={logo}
             alt="Chileno Systems"
-            className="w-72"
+            className="w-64 lg:w-72"
           />
 
-          <nav className="hidden lg:flex gap-8 text-zinc-300">
+          <nav className="hidden lg:flex items-center gap-8 text-zinc-300">
 
-            <a href="#beneficios">
+            <a href="#beneficios" className="hover:text-purple-400 transition">
               Benefícios
             </a>
 
-            <a href="#planos">
+            <a href="#planos" className="hover:text-purple-400 transition">
               Planos
             </a>
 
-            <a href="#contato">
+            <a href="#contato" className="hover:text-purple-400 transition">
               Contato
             </a>
 
@@ -232,7 +245,7 @@ export default function App() {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-purple-600 hover:bg-purple-700 px-5 py-3 rounded-xl font-semibold"
+            className="bg-purple-600 hover:bg-purple-700 transition px-5 py-3 rounded-2xl font-semibold shadow-lg shadow-purple-900/30"
           >
             Falar Agora
           </a>
@@ -250,7 +263,7 @@ export default function App() {
         }`}
       >
 
-        <div className="bg-zinc-950 border border-purple-500/30 rounded-2xl px-5 py-4 shadow-2xl max-w-[320px]">
+        <div className="bg-zinc-950/95 backdrop-blur-xl border border-purple-500/30 rounded-2xl px-5 py-4 shadow-2xl shadow-purple-900/30 max-w-[320px]">
 
           <div className="flex items-center gap-2 mb-2">
 
@@ -270,7 +283,7 @@ export default function App() {
 
       </div>
 
-      {/* BOTÃO WHATSAPP */}
+      {/* WHATSAPP FLOAT */}
       <a
         href={whatsappLink}
         target="_blank"
@@ -278,20 +291,33 @@ export default function App() {
         className="fixed bottom-6 right-6 z-50"
       >
 
-        <div className="relative w-16 h-16 rounded-full bg-green-500 hover:bg-green-600 transition flex items-center justify-center shadow-2xl text-3xl">
+        <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-30" />
+
+        <div className="relative w-16 h-16 rounded-full bg-green-500 hover:bg-green-600 transition flex items-center justify-center shadow-2xl shadow-green-500/40 text-3xl">
           💬
         </div>
 
       </a>
 
       {/* HERO */}
-      <section className="pt-40 pb-24 border-b border-purple-900/40">
+      <section className="relative pt-40 pb-28 overflow-hidden">
 
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-950/40 via-black to-black" />
 
+        <div className="absolute top-[-200px] left-[-200px] w-[500px] h-[500px] bg-purple-700/20 rounded-full blur-3xl" />
+
+        <div className="absolute bottom-[-200px] right-[-200px] w-[500px] h-[500px] bg-purple-700/20 rounded-full blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+          {/* LEFT */}
           <div>
 
-            <h1 className="text-5xl lg:text-7xl font-black leading-[0.95]">
+            <div className="inline-flex items-center rounded-full border border-green-500/40 bg-green-500/10 px-4 py-2 text-sm text-green-400 mb-8">
+              🟢 Especialista online agora
+            </div>
+
+            <h1 className="text-5xl lg:text-7xl font-black leading-[0.95] tracking-tight">
 
               <span className="text-white">
                 Centralize.
@@ -311,17 +337,37 @@ export default function App() {
 
             </h1>
 
-            <p className="mt-8 text-lg text-zinc-300 max-w-xl">
-              CRM, Inteligência Artificial e automação comercial.
+            <p className="mt-8 text-lg text-zinc-300 max-w-xl leading-relaxed">
+              CRM, Inteligência Artificial e automação comercial para empresas
+              que querem escalar atendimento e aumentar vendas.
             </p>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+
+              <a
+                href="#planos"
+                className="bg-purple-600 hover:bg-purple-700 transition px-8 py-4 rounded-2xl font-bold shadow-2xl shadow-purple-700/30"
+              >
+                Ver Planos
+              </a>
+
+              <a
+                href="#contato"
+                className="border border-purple-600 hover:bg-purple-600/10 transition px-8 py-4 rounded-2xl font-bold"
+              >
+                Solicitar Demonstração
+              </a>
+
+            </div>
 
           </div>
 
-          <div className="bg-zinc-950 border border-purple-800/30 rounded-3xl p-6">
+          {/* RIGHT */}
+          <div className="bg-zinc-950 border border-purple-900/30 rounded-3xl p-6 shadow-2xl shadow-purple-900/20">
 
             <div className="grid gap-4">
 
-              <div className="bg-zinc-900 rounded-2xl p-5">
+              <div className="bg-zinc-900 rounded-2xl p-6 border border-zinc-800">
 
                 <div className="text-sm text-zinc-400 mb-2">
                   Leads Hoje
@@ -335,7 +381,7 @@ export default function App() {
 
               <div className="grid grid-cols-2 gap-4">
 
-                <div className="bg-zinc-900 rounded-2xl p-5">
+                <div className="bg-zinc-900 rounded-2xl p-6 border border-zinc-800">
 
                   <div className="text-sm text-zinc-400 mb-2">
                     Conversões
@@ -347,7 +393,7 @@ export default function App() {
 
                 </div>
 
-                <div className="bg-zinc-900 rounded-2xl p-5">
+                <div className="bg-zinc-900 rounded-2xl p-6 border border-zinc-800">
 
                   <div className="text-sm text-zinc-400 mb-2">
                     Atendimento IA
@@ -369,6 +415,58 @@ export default function App() {
 
       </section>
 
+      {/* BENEFÍCIOS */}
+      <section
+        id="beneficios"
+        className="max-w-7xl mx-auto px-6 py-24"
+      >
+
+        <div className="text-center mb-16">
+
+          <h2 className="text-5xl font-black mb-6">
+            Tudo que sua empresa precisa
+          </h2>
+
+          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+            Centralize atendimento, automatize processos e aumente conversões.
+          </p>
+
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          {[
+            'CRM Inteligente',
+            'Automação IA',
+            'WhatsApp Integrado',
+            'Dashboard Comercial',
+          ].map((item, index) => (
+
+            <div
+              key={index}
+              className="bg-zinc-950 border border-purple-900/30 rounded-3xl p-8 hover:border-purple-500 transition hover:-translate-y-2"
+            >
+
+              <div className="w-14 h-14 rounded-2xl bg-purple-600/20 border border-purple-600/40 flex items-center justify-center text-purple-400 text-2xl font-black mb-6">
+                +
+              </div>
+
+              <h3 className="text-2xl font-bold mb-4">
+                {item}
+              </h3>
+
+              <p className="text-zinc-400">
+                Solução moderna para operações comerciais inteligentes.
+              </p>
+
+            </div>
+
+          ))}
+
+        </div>
+
+      </section>
+
       {/* PLANOS */}
       <section
         id="planos"
@@ -381,17 +479,21 @@ export default function App() {
             Planos inteligentes
           </h2>
 
+          <p className="text-zinc-400 text-lg">
+            Escolha a estrutura ideal para sua empresa.
+          </p>
+
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 items-start">
 
-          {plans.map((plan, index) => (
+          {plans.map((plan) => (
 
             <div
-              key={index}
-              className={`rounded-3xl p-10 border relative overflow-hidden ${
+              key={plan.id}
+              className={`rounded-3xl p-10 border relative overflow-hidden transition hover:-translate-y-2 ${
                 plan.popular
-                  ? 'bg-purple-600 border-purple-400'
+                  ? 'bg-purple-600 border-purple-400 shadow-2xl shadow-purple-900/40'
                   : 'bg-zinc-950 border-purple-900/30'
               }`}
             >
@@ -412,7 +514,11 @@ export default function App() {
                 {plan.price}
               </div>
 
-              <p className="mb-8">
+              <p className={`mb-8 leading-relaxed ${
+                plan.popular
+                  ? 'text-purple-100'
+                  : 'text-zinc-400'
+              }`}>
                 {plan.description}
               </p>
 
@@ -445,10 +551,10 @@ export default function App() {
                       : plan.id
                   )
                 }
-                className={`w-full py-4 rounded-2xl font-bold ${
+                className={`w-full py-4 rounded-2xl font-bold transition ${
                   plan.popular
-                    ? 'bg-white text-black'
-                    : 'bg-purple-600'
+                    ? 'bg-white text-black hover:bg-zinc-200'
+                    : 'bg-purple-600 hover:bg-purple-700'
                 }`}
               >
 
@@ -464,10 +570,10 @@ export default function App() {
 
         </div>
 
-        {/* DETALHES */}
+        {/* EXPANSÃO */}
         {expandedPlan && (
 
-          <div className="mt-16">
+          <div className="mt-16 animate-fadeIn">
 
             {plans
               .filter(plan => plan.id === expandedPlan)
@@ -475,16 +581,37 @@ export default function App() {
 
                 <div
                   key={plan.id}
-                  className="bg-zinc-950 border border-purple-900/30 rounded-3xl p-10"
+                  className="bg-zinc-950 border border-purple-900/30 rounded-3xl p-10 shadow-2xl shadow-purple-900/20"
                 >
 
-                  <h3 className="text-4xl font-black mb-6">
-                    {plan.details.subtitle}
-                  </h3>
+                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-12">
 
-                  <p className="text-zinc-400 text-lg mb-10">
-                    {plan.details.text}
-                  </p>
+                    <div>
+
+                      <div className="text-purple-400 font-semibold mb-2">
+                        {plan.title}
+                      </div>
+
+                      <h3 className="text-4xl font-black mb-4">
+                        {plan.details.subtitle}
+                      </h3>
+
+                      <p className="text-zinc-400 text-lg max-w-4xl">
+                        {plan.details.text}
+                      </p>
+
+                    </div>
+
+                    <a
+                      href={whatsappLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-purple-600 hover:bg-purple-700 transition px-8 py-4 rounded-2xl font-bold whitespace-nowrap"
+                    >
+                      Solicitar Demonstração
+                    </a>
+
+                  </div>
 
                   <div className="grid lg:grid-cols-2 gap-10">
 
@@ -552,11 +679,19 @@ export default function App() {
         className="max-w-7xl mx-auto px-6 py-24"
       >
 
-        <div className="bg-zinc-950 border border-purple-900/30 rounded-3xl p-10">
+        <div className="bg-zinc-950 border border-purple-900/30 rounded-3xl p-10 shadow-2xl shadow-purple-900/20">
 
-          <h2 className="text-4xl font-black mb-10">
-            Solicitar Demonstração
-          </h2>
+          <div className="text-center mb-12">
+
+            <h2 className="text-5xl font-black mb-6">
+              Solicitar Demonstração
+            </h2>
+
+            <p className="text-zinc-400 text-lg">
+              Descubra como automatizar sua operação comercial.
+            </p>
+
+          </div>
 
           <form
             onSubmit={(e) => {
@@ -581,7 +716,7 @@ export default function App() {
               )
 
             }}
-            className="space-y-5"
+            className="grid lg:grid-cols-2 gap-5"
           >
 
             <input
@@ -589,15 +724,15 @@ export default function App() {
               name="nome"
               placeholder="Seu nome"
               required
-              className="w-full bg-black border border-zinc-800 rounded-2xl px-5 py-4"
+              className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 outline-none focus:border-purple-500"
             />
 
             <input
               type="text"
               name="empresa"
-              placeholder="Empresa"
+              placeholder="Nome da empresa"
               required
-              className="w-full bg-black border border-zinc-800 rounded-2xl px-5 py-4"
+              className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 outline-none focus:border-purple-500"
             />
 
             <input
@@ -605,20 +740,20 @@ export default function App() {
               name="telefone"
               placeholder="WhatsApp"
               required
-              className="w-full bg-black border border-zinc-800 rounded-2xl px-5 py-4"
+              className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 outline-none focus:border-purple-500"
             />
 
             <input
               type="email"
               name="email"
-              placeholder="E-mail"
+              placeholder="Seu e-mail"
               required
-              className="w-full bg-black border border-zinc-800 rounded-2xl px-5 py-4"
+              className="bg-black border border-zinc-800 rounded-2xl px-5 py-4 outline-none focus:border-purple-500"
             />
 
             <button
               type="submit"
-              className="w-full bg-purple-600 hover:bg-purple-700 py-5 rounded-2xl font-bold"
+              className="lg:col-span-2 bg-purple-600 hover:bg-purple-700 transition py-5 rounded-2xl font-bold text-lg shadow-2xl shadow-purple-900/40"
             >
               Solicitar Demonstração
             </button>
@@ -637,7 +772,7 @@ export default function App() {
           <img
             src={logo}
             alt="Chileno Systems"
-            className="w-52"
+            className="w-52 opacity-90"
           />
 
           <div className="text-zinc-500 text-sm">
