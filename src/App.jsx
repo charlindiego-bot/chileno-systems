@@ -23,82 +23,99 @@ export default function App() {
 
   ]
 
-  const plans = [
-    {
-      id: 'starter',
-      title: 'Starter',
-      price: 'R$ 197/mês',
-      popular: false,
+ const plans = [
+  {
+    id: 'starter',
+    title: 'Starter',
+    price: 'R$ 197/mês',
+    popular: false,
 
-      description:
-        'Ideal para pequenas empresas organizarem atendimento e vendas.',
+    description:
+      'Ideal para pequenas empresas organizarem atendimento, leads e vendas.',
 
-      features: [
-        'CRM integrado',
-        'WhatsApp conectado',
-        'Funil comercial',
-        'Gestão de leads',
-      ],
+    features: [
+      'CRM integrado',
+      'WhatsApp conectado',
+      'Funil comercial',
+      'Gestão básica de leads',
+    ],
 
-      details: [
-        'CRM completo',
-        'Pipeline de vendas',
-        'Controle de clientes',
-        'Dashboard comercial',
-        'WhatsApp integrado',
-      ],
-    },
+    details: [
+      'CRM completo com cadastro de clientes',
+      'Pipeline de vendas visual',
+      'WhatsApp integrado',
+      'Controle de oportunidades',
+      'Gestão de tarefas',
+      'Dashboard comercial',
+      'Maior organização operacional',
+      'Menos perda de leads',
+      'Atendimento mais rápido',
+      'Visão completa das negociações',
+    ],
+  },
 
-    {
-      id: 'business',
-      title: 'Business',
-      price: 'R$ 497/mês',
-      popular: true,
+  {
+    id: 'business',
+    title: 'Business',
+    price: 'R$ 497/mês',
+    popular: true,
 
-      description:
-        'Automação inteligente com IA para empresas em crescimento.',
+    description:
+      'Automação inteligente para empresas que querem escalar resultados.',
 
-      features: [
-        'CRM + Inteligência Artificial',
-        'Automação comercial',
-        'Multi atendimento',
-        'Dashboard avançado',
-      ],
+    features: [
+      'CRM + Inteligência Artificial',
+      'Automação de atendimento',
+      'Multi atendimento',
+      'Gestão de conversões',
+    ],
 
-      details: [
-        'Atendimento com IA',
-        'Distribuição automática de leads',
-        'Automação WhatsApp',
-        'Relatórios avançados',
-        'Fluxos inteligentes',
-      ],
-    },
+    details: [
+      'CRM avançado',
+      'WhatsApp multi usuários',
+      'Automação de mensagens',
+      'Distribuição automática de leads',
+      'Atendimento com IA',
+      'Funis inteligentes',
+      'Relatórios avançados',
+      'Escalabilidade comercial',
+      'Atendimento automatizado',
+      'Redução operacional',
+      'Mais conversão de vendas',
+    ],
+  },
 
-    {
-      id: 'enterprise',
-      title: 'Enterprise',
-      price: 'Sob consulta',
-      popular: false,
+  {
+    id: 'enterprise',
+    title: 'Enterprise',
+    price: 'Sob consulta',
+    popular: false,
 
-      description:
-        'Implantação premium personalizada para operações avançadas.',
+    description:
+      'Estrutura premium para operações comerciais de alta performance.',
 
-      features: [
-        'IA personalizada',
-        'Usuários ilimitados',
-        'Consultoria estratégica',
-        'Treinamento completo',
-      ],
+    features: [
+      'Implantação completa',
+      'IA avançada personalizada',
+      'Usuários ilimitados',
+      'Treinamento da equipe',
+    ],
 
-      details: [
-        'Implantação estratégica',
-        'Integrações avançadas',
-        'Fluxos personalizados',
-        'Suporte premium',
-        'Treinamento da equipe',
-      ],
-    },
-  ]
+    details: [
+      'Implantação completa',
+      'IA personalizada',
+      'Fluxos avançados',
+      'Integrações sob medida',
+      'Treinamento da equipe',
+      'Suporte estratégico',
+      'Consultoria comercial',
+      'Operação profissional',
+      'Escalabilidade total',
+      'Redução de custos',
+      'Aumento de produtividade',
+    ],
+  },
+]
 
   const [notification, setNotification] = useState(notifications[0])
   const [visible, setVisible] = useState(true)
